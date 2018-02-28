@@ -21,7 +21,7 @@ for name in cityIdMap :
     url = 'http://14.139.247.11/citywx/city_weather.php?id=%s' % cityIdMap[name]
     response = requests.request("POST", url)
     soup = BeautifulSoup(response.text)
-    print response.text
+    #print response.text
     body = soup.find('body')
     try :
         table = body.find('table').findAll('table')[1]
@@ -36,4 +36,3 @@ for name in cityIdMap :
         print 'error paring data for %s' % name
         print 'debug data : %s' % body
 
-    exit(1)
